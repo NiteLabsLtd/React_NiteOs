@@ -10,10 +10,10 @@ const TIMELINE_DURATION = 120; // seconds
 const TIME_INTERVAL = 50; // ms for playhead updates
 const ROW_HEIGHT = 40;
 const MAX_ROWS = 2;
-const INITIAL_X = 50;
+const INITIAL_X = 40;
 const INITIAL_Y = 20;
 const MIN_VIDEO_WIDTH = 150;
-const VIDEO_MARGIN = 10;
+const VIDEO_MARGIN = 5;
 
 // ---------------------------
 // Helper: Clamp candidate X based on left/right neighbors.
@@ -123,7 +123,7 @@ export default function Timeline({ timelineVideos, setTimelineVideos }) {
   // ---------------------------
   const handleDrop = (e) => {
     e.preventDefault();
-    const videoName = e.dataTransfer.getData("videoName");
+    const videoName = e.dataTransfer.getData("text");
     if (!videoName) return;
     if (!scrollContainerRef.current) return;
 
@@ -258,6 +258,7 @@ export default function Timeline({ timelineVideos, setTimelineVideos }) {
         ref={setNodeRef}
         className="relative bg-white p-4 w-3/4 h-80 border-t flex flex-col justify-between overflow-hidden mx-auto"
         onDrop={handleDrop}
+        onDragStart={(e) => e.dataTransfer.setData("videoName", e.target.id)}
         onDragOver={(e) => e.preventDefault()}
       >
         {/* Header (drag handle for the panel) */}

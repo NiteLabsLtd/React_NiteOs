@@ -99,6 +99,8 @@ export default function InteractionPanel({ selectedVideo }) {
         borderRadius: "8px",
         boxShadow: "0px 0px 10px rgba(0,0,0,0.3)",
         padding: "10px",
+        top: "60%",
+        left: "40%",
       }}
     >
       {/* Drag Handle */}

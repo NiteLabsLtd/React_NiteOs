@@ -205,7 +205,9 @@ const FrequencyAnalyzer = () => {
           borderRadius: "4px",
           boxShadow: "0 2px 6px rgba(0,0,0,0.2)",
           width: "320px",
-          cursor: "default"
+          cursor: "default",
+          top: "60%",
+          right: "1%",
         }}
       >
         <div
