@@ -5,15 +5,16 @@ import { Rnd } from "react-rnd";
 // ---------------------------
 // Constants (adjust these as needed)
 // ---------------------------
-const TIMELINE_WIDTH = 1000;
+const TIMELINE_WIDTH = 1100;
 const TIMELINE_DURATION = 120; // seconds
 const TIME_INTERVAL = 50; // ms for playhead updates
-const ROW_HEIGHT = 40;
-const MAX_ROWS = 2;
+const ROW_HEIGHT = 90;
+const MAX_ROWS = 1;
 const INITIAL_X = 40;
 const INITIAL_Y = 20;
 const MIN_VIDEO_WIDTH = 150;
 const VIDEO_MARGIN = 5;
+const VIDEO_HEIGHT_INSIDE_TIMELINE = 90;
 
 // ---------------------------
 // Helper: Clamp candidate X based on left/right neighbors.
@@ -307,7 +308,7 @@ export default function Timeline({ timelineVideos, setTimelineVideos }) {
               <Rnd
                 key={`${video.name}-${index}`}
                 position={{ x: video.x, y: video.y }}
-                size={{ width: video.width, height: 30 }}
+                size={{ width: video.width, height: VIDEO_HEIGHT_INSIDE_TIMELINE }}
                 bounds="parent"
                 dragAxis="x"
                 enableResizing={{ left: true, right: true }}
@@ -317,7 +318,7 @@ export default function Timeline({ timelineVideos, setTimelineVideos }) {
                   handleResizeStop(index, direction, ref, delta, position)
                 }
                 onClick={() => setSelectedVideo(video.name)}
-                className={`absolute bg-gray-600 text-white text-xs p-1 rounded cursor-pointer shadow-md ${
+                className={`absolute bg-gray-600 text-white text-center text-xs p-1 rounded cursor-pointer shadow-md ${
                   selectedVideo === video.name ? "border-2 border-red-500" : ""
                 }`}
               >

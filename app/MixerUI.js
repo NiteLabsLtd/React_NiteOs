@@ -47,7 +47,7 @@ export default function MixerUI() {
     const videoName = event.dataTransfer.getData("text/plain");
     if (videoName) {
       const newVideo = { name: videoName, x: 50, width: 150 };
-      setTimelineVideos((prev) => [...prev, newVideo]);
+      setTimelineVideos((prev) => [...prev]);
       setSelectedTimelineVideo(newVideo);
     }
   };
